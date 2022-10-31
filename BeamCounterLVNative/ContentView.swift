@@ -6,21 +6,12 @@
 //
 
 import SwiftUI
+import PhoenixLiveViewNative
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
-    }
-}
+    @State var coordinator = LiveViewCoordinator(URL(string: "http://beam-counter.fly.dev/native")!)
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+    var body: some View {
+        LiveView(coordinator: coordinator)
     }
 }
